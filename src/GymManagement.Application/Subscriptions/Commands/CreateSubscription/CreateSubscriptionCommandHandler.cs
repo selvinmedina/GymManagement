@@ -8,13 +8,13 @@ namespace GymManagement.Application.Subscriptions.Commands.CreateSubscription
     public record CreateSubscriptionCommandHandler : IRequestHandler<CreateSubscriptionCommand, ErrorOr<Subscription>>
     {
         private readonly ISubscriptionsRepository _subscriptionsRepository;
-        //private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateSubscriptionCommandHandler(ISubscriptionsRepository subscriptionsRepository//, IUnitOfWork unitOfWork
+        public CreateSubscriptionCommandHandler(ISubscriptionsRepository subscriptionsRepository, IUnitOfWork unitOfWork
             )
         {
             _subscriptionsRepository = subscriptionsRepository;
-            //_unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<ErrorOr<Subscription>> Handle(CreateSubscriptionCommand request, CancellationToken cancellationToken)
@@ -30,7 +30,7 @@ namespace GymManagement.Application.Subscriptions.Commands.CreateSubscription
             await _subscriptionsRepository.AddSubscriptionAsync(subscription);
 
             // save the changes
-            //await _unitOfWork.CommitChangesAsync();
+            await _unitOfWork.CommitChangesAsync();
 
             // return the subscription
             return subscription;
