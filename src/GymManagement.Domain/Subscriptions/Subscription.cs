@@ -3,17 +3,21 @@
     public class Subscription
     {
         private readonly Guid _adminId;
-        public Guid Id { get; set; }
-        public SubscriptionType SubscriptionType { get; }
+        public Guid Id { get; private set; }
+        public SubscriptionType SubscriptionType { get; private set; }
 
         public Subscription(
-            Guid? id, 
             SubscriptionType subscriptionType,
-            Guid adminId)
+            Guid adminId,
+            Guid? id = null)
         {
             Id = id ?? Guid.NewGuid();
             SubscriptionType = subscriptionType;
             _adminId = adminId;
+        }
+
+        private Subscription()
+        {
         }
     }
 }

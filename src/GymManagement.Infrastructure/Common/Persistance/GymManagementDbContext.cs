@@ -1,11 +1,7 @@
 ﻿using GymManagement.Application.Common.Interfaces;
 using GymManagement.Domain.Subscriptions;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace GymManagement.Infrastructure.Common.Persistance
 {
@@ -20,6 +16,11 @@ namespace GymManagement.Infrastructure.Common.Persistance
         public async Task CommitChangesAsync()
         {
             await base.SaveChangesAsync();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
