@@ -14,9 +14,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GymManagement.Infrastructure", "src\GymManagement.Infrastructure\GymManagement.Infrastructure.csproj", "{F80E8F74-F8FC-4387-9D4C-E06AA25C8522}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requests", "requests", "{C0392DF9-F352-45E4-84C7-A13C6E2CFBAC}"
-	ProjectSection(SolutionItems) = preProject
-		requests\foo.http = requests\foo.http
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GymManagement.Contracts", "src\GymManagement.Contracts\GymManagement.Contracts.csproj", "{393DA209-9389-4975-B4CD-32E4751AA8A1}"
 EndProject

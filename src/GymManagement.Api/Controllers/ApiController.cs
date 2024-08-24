@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace GymManagement.Api
+namespace GymManagement.Api.Controllers
 {
     public class ApiController : ControllerBase
     {
