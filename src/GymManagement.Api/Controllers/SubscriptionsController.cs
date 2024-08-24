@@ -9,7 +9,7 @@ namespace GymManagement.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SubscriptionsController : ControllerBase
+    public class SubscriptionsController : ApiController
     {
         private readonly ISender _mediator;
 
@@ -32,7 +32,7 @@ namespace GymManagement.Api.Controllers
 
             return createSubscriptionResult.Match(
                 subscription => Ok(new SubscriptionResponse(subscription.Id, request.SubscriptionType)),
-                error => Problem());
+                Problem);
         }
 
         [HttpGet("{subscriptionId:guid}")]
@@ -47,7 +47,7 @@ namespace GymManagement.Api.Controllers
                 subscription => Ok(new SubscriptionResponse(
                         subscription.Id,
                         Enum.Parse<SubscriptionType>(subscription.SubscriptionType.Name))),
-                error => Problem());
+                Problem);
         }
     }
 }
