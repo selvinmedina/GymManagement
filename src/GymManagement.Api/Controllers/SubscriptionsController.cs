@@ -35,6 +35,17 @@ namespace GymManagement.Api.Controllers
                 Problem);
         }
 
+        private static SubscriptionType ToDto(DomainSubscriptionType subscriptionType)
+        {
+            return subscriptionType.Name switch
+            {
+                nameof(DomainSubscriptionType.Free) => SubscriptionType.Free,
+                nameof(DomainSubscriptionType.Starter) => SubscriptionType.Starter,
+                nameof(DomainSubscriptionType.Pro) => SubscriptionType.Pro,
+                _ => throw new InvalidOperationException(),
+            };
+        }
+
         [HttpGet("{subscriptionId:guid}")]
         public async Task<IActionResult> GetSubscription(Guid subscriptionId)
         {
@@ -46,7 +57,19 @@ namespace GymManagement.Api.Controllers
             return getSubscriptionResult.Match(
                 subscription => Ok(new SubscriptionResponse(
                         subscription.Id,
-                        Enum.Parse<SubscriptionType>(subscription.SubscriptionType.Name))),
+                        ToDto(subscription.SubscriptionType))),
+                Problem);
+        }
+
+        [HttpDelete("{subscriptionId:guid}")]
+        public async Task<IActionResult> DeleteSubscription(Guid subscriptionId)
+        {
+            var command = new DeleteSubscriptionCommand(subscriptionId);
+
+            var createSubscriptionResult = await _mediator.Send(command);
+
+            return createSubscriptionResult.Match(
+                _ => NoContent(),
                 Problem);
         }
     }

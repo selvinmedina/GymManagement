@@ -43,6 +43,14 @@ namespace GymManagement.Domain.Subscriptions
             _ => throw new InvalidOperationException()
         };
 
+        public int GetMaxDailySessions() => SubscriptionType.Name switch
+        {
+            nameof(SubscriptionType.Free) => 4,
+            nameof(SubscriptionType.Starter) => int.MaxValue,
+            nameof(SubscriptionType.Pro) => int.MaxValue,
+            _ => throw new InvalidOperationException()
+        };
+
         public ErrorOr<Success> AddGym(Gym gym)
         {
             _gymIds.Throw().IfContains(gym.Id);

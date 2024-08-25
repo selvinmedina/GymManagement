@@ -1,4 +1,6 @@
 ﻿using ErrorOr;
+using GymManagement.Domain.Rooms;
+using Throw;
 
 namespace GymManagement.Domain.Gyms
 {
@@ -25,6 +27,10 @@ namespace GymManagement.Domain.Gyms
             Id = id ?? Guid.NewGuid();
         }
 
+        private Gym()
+        {
+        }
+
         public ErrorOr<Success> AddTrainer(Guid trainerId)
         {
             if (_trainerIds.Contains(trainerId))
@@ -35,6 +41,30 @@ namespace GymManagement.Domain.Gyms
             _trainerIds.Add(trainerId);
 
             return Result.Success;
+        }
+
+        public ErrorOr<Success> AddRoom(Room room)
+        {
+            _roomsIds.Throw().IfContains(room.Id);
+
+            if (_roomsIds.Count >= _maxRooms)
+            {
+                return Error.Conflict(description: "Cannot have more rooms than the gym allows");
+            }
+
+            _roomsIds.Add(room.Id);
+
+            return Result.Success;
+        }
+
+        public bool HasRoom(Guid roomId)
+        {
+            return _roomsIds.Contains(roomId);
+        }
+
+        public void RemoveRoom(Guid roomId)
+        {
+            _roomsIds.Remove(roomId);
         }
     }
 }
