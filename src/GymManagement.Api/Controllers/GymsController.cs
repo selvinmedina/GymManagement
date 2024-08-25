@@ -1,4 +1,5 @@
-﻿using GymManagement.Application.Gyms.Commands.CreateGym;
+﻿using GymManagement.Application.Gyms.Commands.AddTrainer;
+using GymManagement.Application.Gyms.Commands.CreateGym;
 using GymManagement.Application.Gyms.Commands.DeleteGym;
 using GymManagement.Application.Gyms.Queries.GetGym;
 using GymManagement.Application.Gyms.Queries.ListGymsQuery;
@@ -73,6 +74,12 @@ namespace GymManagement.Api.Controllers
             AddTrainerRequest request)
         {
             var command = new AddTrainerCommand(subscriptionId, gymId, request.TrainerId);
+
+            var addTrainerResult = await _mediator.Send(command);
+
+            return addTrainerResult.Match(
+                _ => Ok(),
+                Problem);
         }
     }
 }

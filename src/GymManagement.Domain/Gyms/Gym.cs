@@ -1,4 +1,6 @@
-﻿namespace GymManagement.Domain.Gyms
+﻿using ErrorOr;
+
+namespace GymManagement.Domain.Gyms
 {
     public class Gym
     {
@@ -21,6 +23,18 @@
             _maxRooms = maxRooms;
             SubscriptionId = subscriptonId;
             Id = id ?? Guid.NewGuid();
+        }
+
+        public ErrorOr<Success> AddTrainer(Guid trainerId)
+        {
+            if (_trainerIds.Contains(trainerId))
+            {
+                return Error.Conflict(description: "Trainer already exists in gym");
+            }
+
+            _trainerIds.Add(trainerId);
+
+            return Result.Success;
         }
     }
 }
