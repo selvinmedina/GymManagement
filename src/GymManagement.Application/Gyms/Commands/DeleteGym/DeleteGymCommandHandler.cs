@@ -25,7 +25,7 @@ namespace GymManagement.Application.Gyms.Commands.DeleteGym
 
             var subscription = await _subscriptionsRepository.GetByIdAsync(command.SubscriptionId);
 
-            if(subscription is null)
+            if (subscription is null)
             {
                 return Error.NotFound(description: "Subscription not found");
             }

@@ -10,9 +10,9 @@
         public int MaxDailySessions { get; }
 
         public Room(
-            string name, 
-            Guid gymId, 
-            int maxDailySessions, 
+            string name,
+            Guid gymId,
+            int maxDailySessions,
             Guid? id = null)
         {
             Id = id ?? Guid.NewGuid();

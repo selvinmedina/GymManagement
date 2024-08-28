@@ -1,0 +1,14 @@
+@host=http://localhost:5268
+@subscriptionId=2249DA56-5527-4C81-8F31-BB80D6A1F298
+
+POST {{host}}/subscriptions/{{subscriptionId}}/gyms
+Accept: application/json
+Content-Type: application/json
+
+{
+    "Name": "Selvin's gym"
+}
+
+###
+
+http://localhost:5051/subscriptions/51b5d6fd-75fe-44d9-a56f-2dcde66fad56/gyms/59bf64b3-fee6-4403-9631-d1a4f57cb032

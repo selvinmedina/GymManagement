@@ -10,7 +10,7 @@ namespace GymManagement.Application.Gyms.Queries.ListGymsQuery
     {
         public async Task<ErrorOr<List<Gym>>> Handle(ListGymsQuery query, CancellationToken cancellationToken)
         {
-            if(!await subscriptionsRepository.ExistsAsync(query.SubscriptionId))
+            if (!await subscriptionsRepository.ExistsAsync(query.SubscriptionId))
             {
                 return Error.NotFound("Subscription not found");
             }

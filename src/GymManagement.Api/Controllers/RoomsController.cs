@@ -13,7 +13,7 @@ namespace GymManagement.Api.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateRoom(
-            CreateRoomRequest request,
+            [FromBody]CreateRoomRequest request,
             Guid gymId)
         {
             var command = new CreateRoomCommand(gymId, request.Name);

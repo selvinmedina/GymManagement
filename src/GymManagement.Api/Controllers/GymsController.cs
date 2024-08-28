@@ -16,7 +16,7 @@ namespace GymManagement.Api.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateGym(
-            CreateGymRequest request,
+            [FromBody]CreateGymRequest request,
             Guid subscriptionId)
         {
             var command = new CreateGymCommand(request.Name, subscriptionId);
@@ -71,7 +71,7 @@ namespace GymManagement.Api.Controllers
         public async Task<IActionResult> AddTrainer(
             Guid subscriptionId,
             Guid gymId,
-            AddTrainerRequest request)
+            [FromBody]AddTrainerRequest request)
         {
             var command = new AddTrainerCommand(subscriptionId, gymId, request.TrainerId);
 

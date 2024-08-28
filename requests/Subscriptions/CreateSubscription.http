@@ -7,7 +7,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "subscriptionType": "Starter",
-  "adminId": "69ed71a3-d744-4449-96f9-1d07ed86fedc"
+  "subscriptionType": "Pro",
+  "adminId": "2150e333-8fdc-42a3-9474-1a3956d46de8"
 }
 ###
