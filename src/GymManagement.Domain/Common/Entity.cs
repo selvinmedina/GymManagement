@@ -6,6 +6,15 @@
 
         protected readonly List<IDomainEvent> _domainEvents = [];
 
+        public List<IDomainEvent> PopDomainEvents()
+        {
+            var domainEvents = _domainEvents.ToList();
+
+            _domainEvents.Clear();
+
+            return domainEvents;
+        }
+
         protected Entity(Guid id) => Id = id;
 
         protected Entity() { }
