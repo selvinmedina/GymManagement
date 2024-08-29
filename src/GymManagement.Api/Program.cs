@@ -1,5 +1,6 @@
 using GymManagement.Application;
 using GymManagement.Infrastructure;
+using GymManagement.Infrastructure.Common.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 {
     // Add services to the container.
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
     builder.Services.AddProblemDetails();
+    builder.Services.AddHttpContextAccessor();
 
     builder.Services
         .AddApplication()
@@ -18,6 +20,8 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 {
     app.UseExceptionHandler();
+    app.AddInfrastructureMiddleware();
+
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {

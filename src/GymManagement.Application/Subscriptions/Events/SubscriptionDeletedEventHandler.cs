@@ -12,10 +12,16 @@ namespace GymManagement.Application.Subscriptions.Events
     {
         private readonly ISubscriptionsRepository _subscriptionsRepository = subscriptionsRepository;
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
-        
+
         public async Task Handle(SubscriptionDeletedEvent notification, CancellationToken cancellationToken)
         {
-            var subscription = await _subscriptionsRepository.GetByIdAsync(notification.SubscriptionId) ?? throw new InvalidOperationException();
+            var subscription = await _subscriptionsRepository.GetByIdAsync(notification.SubscriptionId);
+
+            if (subscription is null)
+            {
+                // resilient error handling
+                throw new InvalidOperationException();
+            }
 
             await _subscriptionsRepository.RemoveSubscriptionAsync(subscription);
 

@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace GymManagement.Infrastructure.Common.Persistance
 {
-    internal class GymManagementDbContext(
+    public class GymManagementDbContext(
         DbContextOptions<GymManagementDbContext> options,
         IHttpContextAccessor httpContextAccessor) 
         : DbContext(options), IUnitOfWork
