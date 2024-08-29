@@ -37,7 +37,7 @@ namespace GymManagement.Infrastructure.Subscriptions.Persistance
         {
             var subscription = await _dbContext.Subscriptions.FindAsync(subscriptionId);
 
-                return subscription;
+            return subscription;
         }
 
         public Task<List<Subscription>> ListAsync()
