@@ -17,16 +17,6 @@ namespace GymManagement.Application.Gyms.Commands.CreateGym
 
         public async Task<ErrorOr<Gym>> Handle(CreateGymCommand request, CancellationToken cancellationToken)
         {
-            var validator = new CreateGymCommandValidator();
-
-            var validationResult = await validator.ValidateAsync(request);
-
-            if (!validationResult.IsValid)
-            {
-                return validationResult.Errors
-                    .Select(error => Error.Validation(code: error.PropertyName, description: error.ErrorMessage))
-                    .ToList();
-            }
 
             var subscription = await _subscriptionsRepository.GetByIdAsync(request.SubscriptionId);
 

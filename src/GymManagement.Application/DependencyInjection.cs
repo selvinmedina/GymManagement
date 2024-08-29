@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using ErrorOr;
+using GymManagement.Application.Gyms.Commands.CreateGym;
+using GymManagement.Domain.Gyms;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GymManagement.Application
 {
@@ -9,6 +13,12 @@ namespace GymManagement.Application
             services.AddMediatR(options =>
             {
                 options.RegisterServicesFromAssemblyContaining(typeof(DependencyInjection));
+                
+                options.AddBehavior<
+                    IPipelineBehavior<CreateGymCommand, ErrorOr<Gym>>,
+                    CreateGymCommandBehavior
+                    >();
+
             });
 
             return services;

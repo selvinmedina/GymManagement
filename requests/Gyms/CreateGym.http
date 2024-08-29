@@ -6,7 +6,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "Name": "Selvin's gym"
+    "Name": "Eduar's gym"
 }
 
 ###

@@ -18,7 +18,7 @@ namespace GymManagement.Api.Controllers
                 return ValidationProblem(errors);
             }
 
-            return Problem(errors.First());
+            return Problem(errors[0]);
         }
 
         protected IActionResult Problem(Error error)
@@ -31,7 +31,7 @@ namespace GymManagement.Api.Controllers
                 _ => StatusCodes.Status500InternalServerError
             };
 
-            return Problem(statusCode: statusCode, detail: error.Description);
+            return Problem(statusCode: statusCode, detail: error.Code + " " + error.Description);
         }
 
         protected IActionResult ValidationProblem(List<Error> errors)
