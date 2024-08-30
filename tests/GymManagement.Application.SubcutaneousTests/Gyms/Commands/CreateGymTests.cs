@@ -1,5 +1,4 @@
-﻿using ErrorOr;
-using FluentAssertions;
+﻿using FluentAssertions;
 using GymManagement.Application.SubcutaneousTests.Common;
 using GymManagement.Domain.Subscriptions;
 using MediatR;

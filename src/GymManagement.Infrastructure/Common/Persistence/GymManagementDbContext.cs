@@ -48,7 +48,7 @@ namespace GymManagement.Infrastructure.Common.Persistence
             }
             else
             {
-                await PublishDomainEvents( domainEvents);
+                await PublishDomainEvents(domainEvents);
             }
             await base.SaveChangesAsync();
         }
@@ -68,7 +68,7 @@ namespace GymManagement.Infrastructure.Common.Persistence
             // store the queue back in the http context
             _httpContextAccessor.HttpContext!.Items["DomainEventsQueue"] = domainEventsQueue;
         }
-        
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

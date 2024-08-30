@@ -27,14 +27,14 @@ namespace GymManagement.Application.UnitTests.Common.Behaviors
         public async Task InvokeBehavior_WhenValidatorResultIsValid_ShouldInvokeNextBehavior()
         {
             // Arrange
-            
+
             var createGymRequest = GymCommandFactory.CreateCreateGymCommand();
 
             var gym = GymFactory.CreateGym();
 
             _mockNextBehavior.Invoke().Returns(gym);
             _mockValidator.ValidateAsync(
-                createGymRequest, 
+                createGymRequest,
                 Arg.Any<CancellationToken>()
                 )
                 .Returns(new ValidationResult());

@@ -23,7 +23,7 @@ namespace GymManagement.Domain.UnitTests.Subscriptions
             var addGymResults = gyms.ConvertAll(subscription.AddGym);
 
             // Assert
-            var allButLastGymResults = addGymResults[..^ 1];
+            var allButLastGymResults = addGymResults[..^1];
             allButLastGymResults.Should().AllSatisfy(addGymResult => addGymResult.Value.Should().Be(Result.Success));
 
             var lastAddGymResult = addGymResults.Last();
