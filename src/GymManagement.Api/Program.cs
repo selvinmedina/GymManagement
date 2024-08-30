@@ -1,15 +1,11 @@
+using GymManagement.Api;
 using GymManagement.Application;
 using GymManagement.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 {
     // Add services to the container.
 
-    builder.Services.AddControllers();
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-    builder.Services.AddProblemDetails();
-    builder.Services.AddHttpContextAccessor();
+    builder.Services.AddPresentation();
 
     builder.Services
         .AddApplication()

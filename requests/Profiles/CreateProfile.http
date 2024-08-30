@@ -1,7 +1,11 @@
 @host=http://localhost:5268
-@userId=3b2db3a3-a943-4e23-a4ea-e80cc7932aea
+@userId=fdc9fc10-5867-4bef-b68f-c7265e7e3ce3
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2VsdmluIiwiZmFtaWx5X25hbWUiOiJNZWRpbmEiLCJlbWFpbCI6InNlbHZpbkBnb29nbGUuY29tIiwiaWQiOiIzYjJkYjNhMy1hOTQzLTRlMjMtYTRlYS1lODBjYzc5MzJhZWEiLCJwZXJtaXNzaW9ucyI6WyJneW1zOmNyZWF0ZSIsImd5bXM6dXBkYXRlIl0sImFkbWluSWQiOiI2YTE5ZDEwNS04OTcxLTQ3ZjctOTQ1ZS1hYzZkMjgzNjM4NDgiLCJyb2xlcyI6IkFkbWluIiwiZXhwIjoxNzI1MDQ4NTc1LCJpc3MiOiJHeW1NYW5hZ2VtZW50IiwiYXVkIjoiR3ltTWFuYWdlbWVudCJ9.MeP8HhOQkMZSot35kyKJGOebdEc2kGVcvg-P9XCS8XA
 
 POST {{host}}/users/{{userId}}/profiles/admin
+Authorization: Bearer {{token}}
+
+###
 
 ### Trainer
 POST {{host}}/users/{{userId}}/profiles/trainer
