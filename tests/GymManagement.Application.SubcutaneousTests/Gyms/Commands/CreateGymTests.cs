@@ -12,6 +12,21 @@ namespace GymManagement.Application.SubcutaneousTests.Gyms.Commands
     public class CreateGymTests(MediatorFactory mediatorFactory)
     {
         private readonly IMediator _mediator = mediatorFactory.CreateMediator();
+
+        private async Task<Subscription> CreateSubscription()
+        {
+            // Arrange
+            var createSubscriptionCommand = SubscriptionCommandFactory.CreateCreateSubscriptionCommand();
+
+            // Act
+            var result = await _mediator.Send(createSubscriptionCommand);
+
+            // Assert
+            result.IsError.Should().BeFalse();
+
+            return result.Value;
+        }
+
         [Fact]
         public async Task CreateGym_WhenValidCommand_ShouldCreateGym()
         {
@@ -27,18 +42,22 @@ namespace GymManagement.Application.SubcutaneousTests.Gyms.Commands
             createGymResult.Value.SubscriptionId.Should().Be(subscription.Id);
         }
 
-        private async Task<Subscription> CreateSubscription()
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(2)]
+        public async Task CreateGym_WhenCommandContainsInvalidData_ShouldReturnValidationError(int gymNameLength)
         {
             // Arrange
-            var createSubscriptionCommand = SubscriptionCommandFactory.CreateCreateSubscriptionCommand();
+            string gymName = new('a', gymNameLength);
+            var createGymCommand = GymCommandFactory.CreateCreateGymCommand(name: gymName);
 
             // Act
-            var result = await _mediator.Send(createSubscriptionCommand);
+            var result = await _mediator.Send(createGymCommand);
 
             // Assert
-            result.IsError.Should().BeFalse();
-
-            return result.Value;
+            result.IsError.Should().BeTrue();
+            result.FirstError.Code.Should().Be("Name");
         }
     }
 }
