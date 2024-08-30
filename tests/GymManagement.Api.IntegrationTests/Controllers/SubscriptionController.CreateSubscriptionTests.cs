@@ -1,9 +1,9 @@
-﻿using GymManagement.Api.IntegrationTests.Common;
+﻿using FluentAssertions;
+using GymManagement.Api.IntegrationTests.Common;
 using GymManagement.Contracts.Subscriptions;
-using System.Net.Http.Json;
 using System.Net;
+using System.Net.Http.Json;
 using TestCommon.TestsConstants;
-using FluentAssertions;
 
 namespace GymManagement.Api.IntegrationTests.Controllers
 {
