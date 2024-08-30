@@ -32,8 +32,13 @@ namespace GymManagement.Api.Controllers
             var createSubscriptionResult = await _mediator.Send(command);
 
             return createSubscriptionResult.Match(
-                subscription => Ok(new SubscriptionResponse(subscription.Id, request.SubscriptionType)),
-                Problem);
+            subscription => CreatedAtAction(
+                nameof(GetSubscription),
+                new { subscriptionId = subscription.Id },
+                new SubscriptionResponse(
+                    subscription.Id,
+                    ToDto(subscription.SubscriptionType))),
+            Problem);
         }
 
         private static SubscriptionType ToDto(DomainSubscriptionType subscriptionType)
