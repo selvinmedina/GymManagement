@@ -1,4 +1,4 @@
 @host=http://localhost:5268
-@userId=ab05b303-5a48-4ef7-bc57-030a5bec4078
+@userId=3b2db3a3-a943-4e23-a4ea-e80cc7932aea
 
 GET {{host}}/users/{{userId}}/profiles

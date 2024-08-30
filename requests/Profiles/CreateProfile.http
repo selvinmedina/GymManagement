@@ -1,2 +1,10 @@
 @host=http://localhost:5268
-@userId=b6a6c42c-4f43-4933-b8aa-916a34c48c87
+@userId=3b2db3a3-a943-4e23-a4ea-e80cc7932aea
+
+POST {{host}}/users/{{userId}}/profiles/admin
+
+### Trainer
+POST {{host}}/users/{{userId}}/profiles/trainer
+
+### Participant
+POST {{host}}/users/{{userId}}/profiles/participant
