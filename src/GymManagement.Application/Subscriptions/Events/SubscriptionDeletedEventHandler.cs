@@ -4,10 +4,10 @@ using MediatR;
 
 namespace GymManagement.Application.Subscriptions.Events
 {
-    public class SubscriptionDeletedEventHandler (
+    public class SubscriptionDeletedEventHandler(
         ISubscriptionsRepository subscriptionsRepository,
         IUnitOfWork unitOfWork
-        ) 
+        )
         : INotificationHandler<SubscriptionDeletedEvent>
     {
         private readonly ISubscriptionsRepository _subscriptionsRepository = subscriptionsRepository;

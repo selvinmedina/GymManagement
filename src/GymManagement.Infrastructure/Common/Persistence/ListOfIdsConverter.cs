@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace GymManagement.Infrastructure.Common.Persistance
+namespace GymManagement.Infrastructure.Common.Persistence
 {
     public class ListOfIdsConverter(ConverterMappingHints? mappingHints = null)
     : ValueConverter<List<Guid>, string>(

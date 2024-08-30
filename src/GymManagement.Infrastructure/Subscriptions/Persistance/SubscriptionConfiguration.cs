@@ -1,5 +1,5 @@
 ﻿using GymManagement.Domain.Subscriptions;
-using GymManagement.Infrastructure.Common.Persistance;
+using GymManagement.Infrastructure.Common.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -38,6 +38,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rooms", "Rooms", "{B078D0D3
 		requests\Rooms\DeleteRoom.http = requests\Rooms\DeleteRoom.http
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BCBDC539-E981-40EB-B8D8-481D3EC75771}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCommon", "tests\TestCommon\TestCommon.csproj", "{25F64A00-81C7-4A28-8208-B74074D7306A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymManagement.Domain.UnitTests", "tests\GymManagement.Domain.UnitTests\GymManagement.Domain.UnitTests.csproj", "{E37F27B2-4BF0-46F7-8685-0EA1A8B0816B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymManagement.Application.UnitTests", "tests\GymManagement.Application.UnitTests\GymManagement.Application.UnitTests.csproj", "{4E9714B0-133A-42CA-996A-9F1C40E1BFC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymManagement.Application.SubcutaneousTests", "tests\GymManagement.Application.SubcutaneousTests\GymManagement.Application.SubcutaneousTests.csproj", "{DA061FA5-FEF7-4F48-928B-57F0573CC90B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +74,22 @@ Global
 		{393DA209-9389-4975-B4CD-32E4751AA8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{393DA209-9389-4975-B4CD-32E4751AA8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{393DA209-9389-4975-B4CD-32E4751AA8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F64A00-81C7-4A28-8208-B74074D7306A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F64A00-81C7-4A28-8208-B74074D7306A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F64A00-81C7-4A28-8208-B74074D7306A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F64A00-81C7-4A28-8208-B74074D7306A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E37F27B2-4BF0-46F7-8685-0EA1A8B0816B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E37F27B2-4BF0-46F7-8685-0EA1A8B0816B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E37F27B2-4BF0-46F7-8685-0EA1A8B0816B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E37F27B2-4BF0-46F7-8685-0EA1A8B0816B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E9714B0-133A-42CA-996A-9F1C40E1BFC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E9714B0-133A-42CA-996A-9F1C40E1BFC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E9714B0-133A-42CA-996A-9F1C40E1BFC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E9714B0-133A-42CA-996A-9F1C40E1BFC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA061FA5-FEF7-4F48-928B-57F0573CC90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA061FA5-FEF7-4F48-928B-57F0573CC90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA061FA5-FEF7-4F48-928B-57F0573CC90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA061FA5-FEF7-4F48-928B-57F0573CC90B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +103,10 @@ Global
 		{93240887-C96B-4CB3-A56D-D68DD51AC817} = {C0392DF9-F352-45E4-84C7-A13C6E2CFBAC}
 		{344860EA-EA7E-4671-8C47-8BFFC508B2C9} = {C0392DF9-F352-45E4-84C7-A13C6E2CFBAC}
 		{B078D0D3-EACB-41E1-8C5A-6DACC0B1C12C} = {C0392DF9-F352-45E4-84C7-A13C6E2CFBAC}
+		{25F64A00-81C7-4A28-8208-B74074D7306A} = {BCBDC539-E981-40EB-B8D8-481D3EC75771}
+		{E37F27B2-4BF0-46F7-8685-0EA1A8B0816B} = {BCBDC539-E981-40EB-B8D8-481D3EC75771}
+		{4E9714B0-133A-42CA-996A-9F1C40E1BFC5} = {BCBDC539-E981-40EB-B8D8-481D3EC75771}
+		{DA061FA5-FEF7-4F48-928B-57F0573CC90B} = {BCBDC539-E981-40EB-B8D8-481D3EC75771}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55C18BAF-5A9B-4EAD-8E1A-B6804D498046}

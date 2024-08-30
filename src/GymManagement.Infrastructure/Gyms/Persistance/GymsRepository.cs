@@ -1,6 +1,6 @@
 ﻿using GymManagement.Application.Common.Interfaces;
 using GymManagement.Domain.Gyms;
-using GymManagement.Infrastructure.Common.Persistance;
+using GymManagement.Infrastructure.Common.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace GymManagement.Infrastructure.Gyms.Persistance

@@ -1,6 +1,5 @@
 using GymManagement.Application;
 using GymManagement.Infrastructure;
-using GymManagement.Infrastructure.Common.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 {
     // Add services to the container.

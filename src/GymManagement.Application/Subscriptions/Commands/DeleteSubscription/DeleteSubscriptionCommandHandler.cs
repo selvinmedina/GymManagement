@@ -33,7 +33,7 @@ namespace GymManagement.Application.Subscriptions.Commands.DeleteSubscription
             admin.DeleteSubscription(command.SubscriptionId);
 
             await _adminsRepository.UpdateAsync(admin);
-   
+
             await _unitOfWork.CommitChangesAsync();
 
             return Result.Deleted;
