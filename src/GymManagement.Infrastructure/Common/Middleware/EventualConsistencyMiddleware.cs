@@ -17,9 +17,9 @@ namespace GymManagement.Infrastructure.Common.Middleware
                 try
                 {
                     if (
-                                        context.Items.TryGetValue("DomainEventsQueue", out var value)
-                                        && value is Queue<IDomainEvent> domainEventsQueue
-                                        )
+                          context.Items.TryGetValue("DomainEventsQueue", out var value)
+                          && value is Queue<IDomainEvent> domainEventsQueue
+                          )
                     {
                         while (domainEventsQueue!.TryDequeue(out var domainEvent))
                         {
