@@ -29,7 +29,18 @@ namespace GymManagement.Application.Common.Behaviors
 
             var currentUser = _currentUserProvider.GetCurrentUser();
 
-            if(requiredPermissions.Except(currentUser.Permissions).Any())
+            if (requiredPermissions.Except(currentUser.Permissions).Any())
+            {
+                var unauthorizedError = (TResponse)(dynamic)Error.Unauthorized(description: "You are not authorized to perform this action");
+                return Task.FromResult(unauthorizedError);
+            }
+
+            var requiredRoles = authorizeAttributes
+                .SelectMany(
+                authorizeAttributes => authorizeAttributes?.Roles?.Split(",") ?? []
+                ).ToList();
+
+            if (requiredRoles.Except(currentUser.Roles).Any())
             {
                 var unauthorizedError = (TResponse)(dynamic)Error.Unauthorized(description: "You are not authorized to perform this action");
                 return Task.FromResult(unauthorizedError);
