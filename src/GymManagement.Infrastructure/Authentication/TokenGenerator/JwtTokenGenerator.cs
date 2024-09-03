@@ -29,7 +29,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
             new(JwtRegisteredClaimNames.FamilyName, user.LastName),
             new(JwtRegisteredClaimNames.Email, user.Email),
             new("id", user.Id.ToString()),
-            new("permissions", "gyms:create"),
+            //new("permissions", "gyms:create"),
             new("permissions", "gyms:update"),
         };
 

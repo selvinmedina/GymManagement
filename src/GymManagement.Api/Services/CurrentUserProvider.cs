@@ -10,11 +10,18 @@ namespace GymManagement.Api.Services
         {
             _httpContectAccesor.HttpContext.ThrowIfNull();
 
-            var claim = _httpContectAccesor.HttpContext.User.Claims.First(claim => claim.Type == "id");
+            var idClaim = _httpContectAccesor.HttpContext.User.Claims
+                .First(claim => claim.Type == "id");
 
-            var userId = Guid.Parse(claim.Value);
+            var permissionClaim = _httpContectAccesor.HttpContext.User.Claims
+                .First(claim => claim.Type == "permissions");
 
-            return new CurrentUser(userId);
+            var userId = Guid.Parse(idClaim.Value);
+
+            return new CurrentUser(
+                userId, 
+                Permissions: permissionClaim.Value.Split(",")
+                );
         }
     }
 }
