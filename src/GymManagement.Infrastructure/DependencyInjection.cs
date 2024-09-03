@@ -51,7 +51,13 @@ namespace GymManagement.Infrastructure
             services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
-            services.AddAuthentication(defaultScheme: JwtBearerDefaults.AuthenticationScheme)
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }
+            )
                 .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
